@@ -71,6 +71,7 @@ Execute o comando a seguir:
 
       #A variável abaixo irá compor as informações do “UserPrincipalName”
       $UPN = $NewUser.firstName + "." + $NewUser.lastName + "@" + $directory
+      $UPN = $UPN.ToLower
 
       $DisplayName = $NewUser.firstName + " " + $NewUser.lastName + " (" + $NewUser.department + ")"
 
