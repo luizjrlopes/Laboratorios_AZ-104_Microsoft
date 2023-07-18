@@ -1,4 +1,6 @@
-# Lab 1.1 - Criando usuários e grupos usando o powershell
+# Lab Bloco 1 - Gerenciar objetos do Azure AD
+
+Neste Laboratório iremos implementar o gerenciamento de objetos do Azure AD utlizando a linha de comando Powershell.
 
 ## Instalando PowerShell para Azure AD no PC Local
 
@@ -139,9 +141,8 @@ Execute o comando a seguir:
    Get-AzureADDirectoryRoleTemplate
    ```
 
-Esse comando lista uma série de templates de funções que podem ser utilizadas. Caso encontre entres eles a função desejada, habilite-a para que possa usá-la para atribuir posteriormente a um usuário. Guarde o valor do “DisplayName” da função desejada e a habilite com os comandos abaixo.
+Esse comando lista uma série de templates de funções que podem ser utilizadas. Caso encontre entre eles a função desejada, habilite-a para que possa usá-la para atribuir posteriormente a um usuário. Guarde o valor do “DisplayName” da função desejada e a habilite com os comandos abaixo.
 
-**Obs:** O valor do Tenant ID é encontrado dentro do seu diretório do Azure AD no portal. Se não colocar o tenant ID pode ocorrer erro de autorização na hora de executar os cmdlets.
 
 Execute o comando a seguir:
 
@@ -235,6 +236,177 @@ Para assinalar uma função a um grupo novo, execute o comando a seguir:
    New-AzureADMSRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id
    ```
    Após esses comandos o grupo terá as permissões dadas pela atribuição da função.
+
+## Gerenciando propriedades de usuários
+
+Para atualizar as propriedades é necessário dados dos usuários como: objectId, displayName, userPrincipalName. Se pode obtê-los pelos comandos abaixo:
+
+### Verificar todos usuários em seu AAD com o PowerShell
+
+Execute o comando a seguir:
+
+
+ **powershell** 
+  ```powershell
+   Get-AzureADUser
+   ```
+
+### Verificar usuários membros em seu AAD com o PowerShell
+
+Execute o comando a seguir:
+
+
+ **powershell** 
+  ```powershell
+   Get-AzureADUser -Filter "UserType eq 'Member'"
+   ```
+
+### Verificar usuários convidados em seu AAD com o PowerShell
+
+Execute o comando a seguir:
+
+
+ **powershell** 
+  ```powershell
+   Get-AzureADUser -Filter "UserType eq 'Guest'"
+   ```
+
+Há outra forma de obter o nome principal do usuário, como username@contoso.com ou a ID do objeto do usuário de forma individual, caso possua o “userName” do usuário.
+
+Execute o comando a seguir:
+
+
+   **powershell** 
+   ```powershell
+      Get-AzADUser -StartsWith <userName>
+   ```
+
+   **saída** 
+   ```
+      DisplayName    Id                                  Mail UserPrincipalName
+      -----------   --                                   ---- -----------------
+      username      11111111-1111-1111-1111-111111111111      username@contoso.com
+
+   ```
+
+ou
+
+Execute o comando a seguir:
+
+
+   **powershell** 
+   ```powershell
+      (Get-AzADUser -DisplayName <userName>).id
+   ```
+
+   **saída** 
+   ```
+      11111111-1111-1111-1111-111111111111 
+
+   ```
+Vamos abaixo atualizar algumas das informações de um usuário.(As demais podem ser encontradas na referência)
+
+Edite as variáveis ($) que irá usar e delete as que não for (Lembre de excluir a referência da variável no código). Execute o comando a seguir:
+
+ **powershell** 
+  ```powershell
+  $objectId = "11111111-1111-1111-1111-111111111111"
+   $displayName = "Cris Green"
+   $userPrincipalName = "chris@contoso.com"
+   $PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
+   $PasswordProfile.Password = "Password8@"
+   $givenName = "Antonio"
+   $surname = "Silva"
+   $jobTitle = "Suporte"
+   $department = "TI"
+   $streetAddress = "Rua Nove de Julho"
+   $state = "São Paulo"
+   $country = "Brazil"
+   $physicalDeliveryOfficeName = "São Paulo"
+   $city = "São Paulo"
+   $postalCode = "04739-010"
+   $telephoneNumber = "(00)0000-0000"
+   $mobile = "(00)00000-0000"
+   $companyName = "Contoso”
+
+   Set-AzureADUser -ObjectId $objectId -AccountEnabled $true -City $city -CompanyName $companyName `
+   -Country $country -Department $department -DisplayName $displayName `
+   -GivenName $givenName -JobTitle $jobTitle -Mobile $mobile `
+   -PasswordProfile $PasswordProfile -PhysicalDeliveryOfficeName $physicalDeliveryOfficeName `
+   -PostalCode $postalCode -State $state -StreetAddress $streetAddress -Surname $surname `
+   -TelephoneNumber $telephoneNumber -UserPrincipalName $userPrincipalName
+   ```
+
+## Gerenciando propriedade de grupos
+
+Para atualizar as propriedades é necessário dados dos grupos. Se pode obtê-los pelos comandos abaixo:
+
+### Verificar todos os grupos em seu AAD com o PowerShell
+
+Execute o comando a seguir:
+
+
+ **powershell** 
+   ```powershell
+   Get-AzureADGroup
+   ```
+
+### Verificar um grupo específico em seu AAD com o PowerShel
+
+Execute o comando a seguir:
+
+
+ **powershell** 
+   ```powershell
+   $objectId = "11111111-1111-1111-1111-111111111111"
+   Get-AzureADGroup -ObjectId $objectId
+   ```
+
+ **saída** 
+   ```
+   ObjectId                             DisplayName      Description
+   --------                             -----------      -----------
+   11111111-1111-1111-1111-111111111111 Grupo Escolhido  Grupo da equipe teste
+   ```
+
+
+### Atualizando um grupo específico em seu AAD com o PowerShell
+
+Vamos abaixo atualizar algumas das informações de um grupo(As demais podem ser encontradas na referência).
+
+
+Edite as variáveis ($) que irá usar e delete as que não for (Lembre de excluir a referência da variável no código). Execute o comando a seguir:
+
+
+ **powershell** 
+   ```powershell
+   $objectId = "11111111-1111-1111-1111-111111111111"
+   $description = "Grupo da equipe da área financeira"
+   $displayName = "Financeiro"
+   Set-AzureADGroup -ObjectId $objectId -Description $description -DisplayName $displayName -MailEnabled $false
+   ```
+
+
+
+### Define as propriedades de um grupo existente em seu AAD com o PowerShell
+
+Vamos abaixo definir algumas das propriedades de um grupo(As demais podem ser encontradas na referência).
+ 
+
+Edite as variáveis ($) que irá usar e delete as que não for (Lembre de excluir a referência da variável no código). 
+
+Execute o comando a seguir:
+
+ **powershell** 
+   ```powershell
+   $objectId = "11111111-1111-1111-1111-111111111111"
+   $description = "Grupo da equipe da área financeira"
+   $displayName = "Financeiro"
+   Set-AzureADGroup -ObjectId $objectId -Description $description -DisplayName $description -MailEnabled $false
+   ```
+
+
+
 
 #### Revisão
 
