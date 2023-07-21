@@ -1,16 +1,15 @@
 
-# Laboratório 2 Bloco 1 - Criando usuários em massa e unidade administrativa utilizando o Portal do Azure
+# Laboratório 2a Bloco 1 - Criando usuários em massa e unidade administrativa utilizando o Portal do Azure
 
 ## Objetivos
 
 Neste Laboratório você irá:
 
 + Tarefa 1: Criar usuários membros em massa no Azure AD
-+ Tarefa 1: Criar usuários convidados em massa no Azure AD
-+ Tarefa 3: Realize atualizações de usuário em massa
-+ Tarefa 2: Criar uma Unidade Administrativa
-+ Tarefa 3: Adicionar Recursos à Unidade Administrativa
-+ Tarefa 4: Criar usuários convidados em massa no Azure AD
++ Tarefa 2: Criar usuários convidados em massa no Azure AD
++ Tarefa 3: Criar uma Unidade Administrativa
++ Tarefa 4: Adicionar Recursos à Unidade Administrativa
+
 
 
 ## Tarefa 1: Criando Usuário Membro em massa. 
@@ -70,7 +69,57 @@ Neste Laboratório você irá:
 
    ![Captura de tela de todos os serviços. ](./../../../imagens/Lab2/img12.png)
 
-## Tarefa 2: Criar uma Unidade Administrativa
+## Tarefa 2: Criando Usuário Convidado em massa. 
+1. No diretório padrão do Azure Active Directory, selecione **Users** .
+
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img2.png)
+   
+2. Para iniciar a criação de usuários em massa para sua organização, selecione **Bulk invite** .
+
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab2/img25.png)
+
+3. Faça o download do arquivo **.csv**.
+
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab2/img26.png)
+
+4. Abra o arquivo **.csv** em um editor de texto da mesma forma da tarefa anterior.
+
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab2/img27.png)
+
+5. Modifique o template editando-o como a figura abaixo.
+
+>Nota: Os emails abaixo são ficticios, logo os usuários serão criados, mas os convites não chegarão em um email real. Caso queira receber os emails em uma caixa de entrada real, modifique os emails.
+
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab2/img28.png)
+
+
+8. Salve o arquivo no formato **.csv**.
+
+>**Obs:** É de extrema importância que salve o arquivo no formato correto.
+
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab2/img29.png)
+
+9. Faça upload do seu arquivo no formato **.csv** .
+
+
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab2/img30.png)
+
+>**Obs:** Ao fazer upload do arquivo o sistema verifica se o formato do arquivo e dos campos estão corretos. Se sim aparecerá que o upload do arquivo foi um sucesso. Caso não esteja aparecendo para você, o erro deve estar na formatação do seu arquivo.
+
+10. Clique em **Submit**.
+
+
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab2/img31.png)
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab2/img32.png)
+
+>**Obs:** Neste momento o sistema verifica se os campos obrigatórios do arquivo estão devidamente preenchidos e o dominio do email do novos usuários está de acordo com o dominio da organização. Se sim aparecerá que a criação de usuários foi um sucesso. Caso não esteja aparecendo para você, o erro deve estar na ausência de informação nos campos obrigatórios ou no dominio de email dos usuários.
+
+11. Volte a área de usuários e verique se eles foram criados, caso ainda não estejam aparecendo, atualize a página.
+
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab2/img33.png)
+
+
+## Tarefa 3: Criar uma Unidade Administrativa
 
 1. Entre no portal do Azure: **https://portal.azure.com**
 
@@ -93,7 +142,7 @@ Neste Laboratório você irá:
 
 6. Clique em "Criar" para criar a unidade administrativa.
 
-## Tarefa 3: Adicionar Recursos à Unidade Administrativa
+## Tarefa 4: Adicionar Recursos à Unidade Administrativa
 
 >**Obs:** Com a unidade administrativa criada, você pode começar a adicionar recursos a ela. Por exemplo, você pode adicionar usuários, grupos, aplicativos, políticas etc., dependendo das suas necessidades.
 
