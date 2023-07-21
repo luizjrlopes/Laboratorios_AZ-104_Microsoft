@@ -1,8 +1,20 @@
-# Lab Bloco 1 - Gerenciar objetos do Azure AD
+# Laboratório 1b Bloco 1 - Gerenciar objetos do Azure AD utilizando o PowerShell
 
-Neste Laboratório iremos implementar o gerenciamento de objetos do Azure AD utlizando a linha de comando Powershell.
+Neste Laboratório iremos implementar o gerenciamento de objetos do Azure AD utilizando a linha de comando Powershell.
 
-## Instalando PowerShell para Azure AD no PC Local
+
+## Objetivos
+
+Neste Laboratório você irá:
+
++ Tarefa 1: Instalando PowerShell para Azure AD no PC Local
++ Tarefa 2: Criar e configurar usuários membros e usuários convidados do Azure AD
++ Tarefa 3: Criar grupos do Azure AD com associação atribuída e dinâmica
++ Tarefa 4: Realize atualizações de usuário em massa
++ Tarefa 5: Gerenciar licenças no Azure AD
++ Tarefa 6: Gerenciar propriedades do usuário e do grupo
+
+## Tarefa 1: Instalando PowerShell para Azure AD no PC Local
 
 ### Abra o powershell como administrador
 
@@ -32,6 +44,7 @@ Execute o comando a seguir:
 
 ![image](../../../imagens/imagensTenantIDAAD.png)
 
+## Tarefa 2: Criando Usuários membros e convidados da Organização 
 
 ### Criando usuário membro com o PowerShell
 

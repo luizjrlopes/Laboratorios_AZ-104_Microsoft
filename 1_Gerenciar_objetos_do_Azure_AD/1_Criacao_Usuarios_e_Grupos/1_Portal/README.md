@@ -1,20 +1,21 @@
 
- # Laboratório 1 Bloco 1 - Gerenciar objetos do Azure AD utilizando o Portal do Azure
+# Laboratório 1a Bloco 1 - Gerenciar objetos do Azure AD utilizando o Portal do Azure
 
-## Cenário de laboratório
 
-Para permitir que os usuários de uma empresa se autentiquem usando o Azure AD, você foi encarregado de provisionar usuários e contas de grupo. 
+Neste Laboratório iremos implementar o gerenciamento de objetos do Azure AD utilizando o Portal do Azure.
 
 ## Objetivos
 
 Neste Laboratório você irá:
 
-+ Tarefa 1: Criar e configurar usuários membros do Azure AD
-+ Tarefa 2: Criar e configurar usuários convidados Azure AD
-+ Tarefa 3: Criar grupos do Azure AD com associação atribuída e dinâmica
++ Tarefa 1: Criar usuários membros e usuários convidados e configurar as propriedades no Azure AD
++ Tarefa 2: Criar grupos do Azure AD com associação atribuída e dinâmica
++ Tarefa 3: Gerenciar licenças no Azure AD
 
 
-## Tarefa 1: Criando Usuário Membro da Organização 
+
+## Tarefa 1: Criando Usuários membros e convidados e configurarando suas propriedades
+###  Criando Usuários membros da organização 
 
 1. Entre no portal do Azure: **https://portal.azure.com**
 
@@ -31,7 +32,7 @@ Neste Laboratório você irá:
 
    ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img3.png)
 
-4. Na aba **Basics**, preencha as informações e em seguida selecione **Next:Properties** (Abaixo um exemplo básico):
+5. Na aba **Basics**, preencha as informações e em seguida selecione **Next:Properties** (Abaixo um exemplo básico):
 
    | Basics                                 | Values                         |
    |  --                                    | --                             |
@@ -39,13 +40,13 @@ Neste Laboratório você irá:
    | Mail nickname                          | :ballot_box_with_check: Derive from user principal name    |
    | Display name                           | **New User**                   |
    | Password                               |**Pa$$u0rd1\*** </br> :black_square_button: **Auto-generate password**   |
-   | Account enabled                        |:ballot_box_with_check: Derive from user principal name             |
+   | Account enabled                        |:ballot_box_with_check:    |
 
 
 
    ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img4.png)
 
-5. Na aba **Properties**, preencha os campos abaixo e selecione **Review + Create** e depois **Create**.
+6. Na aba **Properties**, vamos configurar algumas propriedades, preencha os campos abaixo e selecione **Review + Create** e depois **Create**.
    
    | Properties     | Values                  |
    |  --            | --                      |
@@ -60,12 +61,12 @@ Neste Laboratório você irá:
 
    ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img5.png)
 
-6. O usuário está criado.
+7. O usuário está criado.
 
    ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img6.png)
 
-## Tarefa 2: Criando usuário convidado no Portal
 
+### Criando Usuários convidados da organização 
 
 1. Volte ao Diretório Padrão do **Azure Active Directory**, em seguida selecione **Users**.
 
@@ -78,7 +79,7 @@ Neste Laboratório você irá:
 
 
 
-2. Na aba **Basics**, preencha as informações e em seguida selecione **Next:Properties** (Abaixo um exemplo básico):
+3. Na aba **Basics**, preencha as informações e em seguida selecione **Next:Properties** (Abaixo um exemplo básico):
 
    | Basics                          | Values                        |
    |  --                                    | --                             |
@@ -90,8 +91,8 @@ Neste Laboratório você irá:
     ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img8.png)
 
 >Obs: No campo **Email** digite um email seu como; gmail, outlook ou afins para que receba a solicitação por email do acesso.
- 
-3. Na aba **Properties**, preencha os campos e selecione **Review + Invite** e depois **Invite**.
+
+4. Na aba **Properties**, vamos configurar algumas propriedades, preencha os campos como o exemplo abaixo e selecione **Review + Invite** e depois **Invite**.
    
    
    | Properties     | Values                  |
@@ -104,31 +105,35 @@ Neste Laboratório você irá:
    | Department     | **IT**                  |
    | Usage location     | **Brazil**                  |
 
+   >**Obs:** Por questão de governança use um sobrenome diferente do da conta principal.
+
    ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img9.png)
 
-4. O usuário está criado.
+5. O usuário está criado.
  
       ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img10.png)
 
-## Tarefa 3: Criando grupos do Azure AD com associação atribuída e dinâmica
+## Tarefa 2: Criando grupos do Azure AD com associação atribuída e dinâmica
 
-**Primeira Parte - Iremos adicionar um usuário em um grupo de forma manual utilizando associação a atribuida.** 
-
-
+### Adicionar um usuário em um grupo de forma manual utilizando associação a atribuida.
 
 
-6. No menu esquerdo no Diretório Padrão do **Azure Active Directory**, selecione **Groups**.
- ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img16.png)
+
+
+1. No menu esquerdo no Diretório Padrão do **Azure Active Directory**, selecione **Groups**.
+
+    ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img16.png)
  
 
 
 
 
-7. Selecione **New group**. 
- ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img17.png)
+2. Selecione **New group**. 
+
+    ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img17.png)
 
 
-8. Vamos associar um usuário à um grupo de tipo **Atribuído**. Preencha conforme o campo abaixo e clique em **No members selected** para selecionar um usuário.
+3. Vamos associar um usuário à um grupo de tipo **Atribuído**. Preencha conforme o campo abaixo e clique em **No members selected** para selecionar um usuário.
 
    | New Group     | Values                  |
    |  --            | --                      |
@@ -144,20 +149,25 @@ Neste Laboratório você irá:
    ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img18.png)
 
 
-9. Digite o nome do primeiro usuário criado na área de pesquisa, em seguida, marque a caixa de seleção ao lado dele e depois em **Select**.
+4. Digite o nome do primeiro usuário criado na área de pesquisa, em seguida, marque a caixa de seleção ao lado dele e depois em **Select**.
 
    ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img19.png)
 
-10. No campo **Members** estará mostrando que um usuário foi selecionado. Em seguida selecione **Create**.
+5. No campo **Members** estará mostrando que um usuário foi selecionado. Em seguida selecione **Create**.
 
     ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img20.png)
 
-10. O grupo foi criado. Caso ainda não esteja aparecendo basta clicar em **Refresh** para atualizar a página.
+6. O grupo foi criado. Caso ainda não esteja aparecendo basta clicar em **Refresh** para atualizar a página.
 
    ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img21.png)
 
+7. Após selecionar o grupo pode se verificar que foi assinalado um usuário.
 
-**Segunda parte - Iremos adicionar usuário em um grupo de forma automática a partir de um parâmetro utilizando associação dinâmica.** 
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img21a.png)
+
+
+### Adicionar usuário em um grupo de forma automática a partir de um parâmetro utilizando associação dinâmica. 
+
 >**Obs: Para criação de grupo utilizando associação a atribuída basta uma licença gratuita, porém para criação de grupo utilizando associação dinâmica é necessário uma licença Azure AD Premium P2.**
 
 1. Verifique qual licença do Azure AD está utilizando. Se for como a figura abaixo, siga os passos 2 a 5, caso esteja utilizando uma licença **Premium**, continue a partir do passo 6.
@@ -235,6 +245,48 @@ Neste Laboratório você irá:
 
    ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img28.png)
 
+## Tarefa 3: Gerenciar licenças no Azure AD
+
+
+1. Vá para página **Users** e selecione o usuário membro.
+
+
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img29.png)
+
+2. Vá para página **Users** e selecione o usuário membro.
+
+
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img29.png)
+
+3. Clique em **Licenses**.
+  
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img30.png)
+
+4. Para fornecer uma licença a esse usuário, selecione **Assignments**.
+
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img31.png)
+
+5. Escolha os recursos que serão liberados nessa licença e selecione **Save**.
+  
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img32.png)
+
+6. Aguarde a confirmação. 
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img33.png)
+
+6. Volte a página de licença do usuario. Note que ele possui a licença.  
+   ![Captura de tela de todos os serviços. ](./../../../imagens/Lab1/img34.png)
+
+
+
+
+
+
+
+
+
+
+
+
 #### Revisão
 
 Nesse laboratório, você aprendeu:
@@ -242,5 +294,7 @@ Nesse laboratório, você aprendeu:
 + Criar e configurar usuários membros do Azure AD
 + Criar e configurar usuários convidados Azure AD
 + Criar grupos do Azure AD com associação atribuída e dinâmica
++ Gerenciar licenças no Azure AD
++ Gerenciar propriedades do usuário e do grupo
 
 
